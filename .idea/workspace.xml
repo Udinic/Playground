@@ -1,7 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c15cb6c9-84a5-4475-80be-4068d591e60e" name="Default" comment="" />
+    <list default="true" id="c15cb6c9-84a5-4475-80be-4068d591e60e" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/BetterCompoundDrawable/proguard.cfg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/BetterCompoundDrawable/res/drawable-hdpi/ic_launcher.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/BetterCompoundDrawable/res/drawable-ldpi/ic_launcher.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/BetterCompoundDrawable/res/drawable-mdpi/ic_launcher.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GeneralTestings/libs/activation.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GeneralTestings/libs/additionnal.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GeneralTestings/libs/mail.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GeneralTestings/res/drawable-hdpi/ic_launcher.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GeneralTestings/res/drawable-hdpi/progress_primary_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GeneralTestings/res/drawable-hdpi/progress_secondary_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GeneralTestings/res/drawable-hdpi/replay.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GeneralTestings/res/drawable-ldpi/ic_launcher.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GeneralTestings/res/drawable-mdpi/ic_launcher.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GeneralTestings/res/raw/test.mp4" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SplashScreen/proguard.cfg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SplashScreen/res/drawable-hdpi/ic_launcher.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SplashScreen/res/drawable-hdpi/splash_noise.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SplashScreen/res/drawable-ldpi/ic_launcher.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SplashScreen/res/drawable-mdpi/ic_launcher.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/BetterCompoundDrawable/AndroidManifest.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/BetterCompoundDrawable/BetterCompoundDrawable.iml.backup" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/BetterCompoundDrawable/BetterCompoundDrawable.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/BetterCompoundDrawable/ant.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/BetterCompoundDrawable/build.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/BetterCompoundDrawable/gen/com/udinic/compound_drawable/BuildConfig.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/BetterCompoundDrawable/gen/com/udinic/compound_drawable/R.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/BetterCompoundDrawable/local.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/BetterCompoundDrawable/project.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/BetterCompoundDrawable/res/layout/main.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/BetterCompoundDrawable/res/values/strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/BetterCompoundDrawable/src/com/udinic/compound_drawable/MyActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GeneralTestings/AndroidManifest.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GeneralTestings/GeneralTestings.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GeneralTestings/ant.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GeneralTestings/build.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GeneralTestings/gen/com/udinic/general_testing/BuildConfig.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GeneralTestings/gen/com/udinic/general_testing/R.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GeneralTestings/local.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GeneralTestings/proguard.cfg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GeneralTestings/project.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GeneralTestings/res/drawable-hdpi/progress_horizontal_holo_dark.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GeneralTestings/res/layout/act_login.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GeneralTestings/res/layout/act_login_log_in.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GeneralTestings/res/layout/act_login_sign_in.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GeneralTestings/res/layout/main.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GeneralTestings/res/values/strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GeneralTestings/src/com/udinic/general_testing/AutoResizeTextViewNew.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GeneralTestings/src/com/udinic/general_testing/GeneralActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GeneralTestings/src/com/udinic/general_testing/Login.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GeneralTestings/src/com/udinic/general_testing/LoginLogIn.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GeneralTestings/src/com/udinic/general_testing/MyActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GeneralTestings/src/com/udinic/general_testing/MyActivity2.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GeneralTestings/src/com/udinic/general_testing/OLD_AutoResizeTextView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GeneralTestings/src/com/udinic/general_testing/mail/GMailSender.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GeneralTestings/src/com/udinic/general_testing/mail/JSSEProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GeneralTestings/src/com/udinic/general_testing/mail/MailSenderActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SplashScreen/AndroidManifest.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SplashScreen/SplashScreen.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SplashScreen/ant.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SplashScreen/build.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SplashScreen/gen/com/udinic/BuildConfig.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SplashScreen/gen/com/udinic/R.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SplashScreen/local.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SplashScreen/project.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SplashScreen/res/layout/main.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SplashScreen/res/layout/splash.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SplashScreen/res/values/strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SplashScreen/res/values/styles_udi.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SplashScreen/src/com/udinic/MyActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="Playground.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -63,6 +137,7 @@
   </component>
   <component name="Git.Settings">
     <option name="SSH_EXECUTABLE" value="NATIVE_SSH" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenRunner">
     <option name="jreName" value="#JAVA_INTERNAL" />
@@ -73,7 +148,7 @@
     <option name="width" value="1936" />
     <option name="height" value="1176" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -109,8 +184,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -119,15 +194,15 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="options.lastSelected" value="project.propVCSSupport.VCSs.Git" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="Remote" factoryName="Remote">
@@ -237,6 +312,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+      <changelist id="c15cb6c9-84a5-4475-80be-4068d591e60e" name="Default" comment="" />
       <created>1337899855933</created>
       <updated>1337899855933</updated>
     </task>
@@ -246,28 +322,29 @@
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">

@@ -4,6 +4,9 @@
     <option name="DEFAULT_COMPILER" value="Javac" />
     <excludeFromCompile>
       <directory url="file://$PROJECT_DIR$/ICS-Testing/gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/BetterCompoundDrawable/gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/GeneralTestings/gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/SplashScreen/gen" includeSubdirectories="true" />
     </excludeFromCompile>
     <resourceExtensions />
     <wildcardResourcePatterns>

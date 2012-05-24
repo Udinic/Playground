@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF">
+
+              <!--style="?dlgTitle"-->
+    <TextView android:id="@+id/title"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="20dip"
+              android:layout_marginLeft="15dip"
+              android:layout_marginRight="15dip"
+              android:text="udini login"
+              android:textColor="#00FF00"
+              android:textSize="30sp"/>
+
+    <Spinner android:id="@+id/login_emails"
+             android:spinnerMode="dropdown"
+             android:layout_height="wrap_content"
+             android:layout_width="fill_parent"
+             android:minHeight="53dip"
+             android:layout_marginTop="15dip"
+             android:layout_marginLeft="15dip"
+             android:layout_marginRight="15dip"
+            />
+             <!--android:layout_marginBottom="10dip"-->
+
+    <EditText android:id="@+id/password"
+              android:text="1234"
+              android:layout_height="wrap_content"
+              android:layout_width="fill_parent"
+              android:minHeight="53dip"
+              android:layout_marginLeft="15dip"
+              android:layout_marginRight="15dip"/>
+
+    <Button android:id="@+id/signIn"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:minHeight="53dip"
+            android:layout_marginLeft="15dip"
+            android:layout_marginRight="15dip"
+            android:layout_marginTop="15dip"
+            android:text="Sign da fuck in"/>
+
+              <!--android:layout_marginTop="15dip"-->
+    <TextView android:id="@+id/forgotPass"
+              android:layout_height="wrap_content"
+              android:layout_width="wrap_content"
+              android:layout_gravity="center_horizontal"
+              android:text="forgot your pass motherfucka'?"/>
+
+</LinearLayout>
