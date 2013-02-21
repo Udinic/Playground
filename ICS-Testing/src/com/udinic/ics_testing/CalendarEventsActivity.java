@@ -33,6 +33,5 @@ public class CalendarEventsActivity extends Activity {
             getFragmentManager().beginTransaction().add(android.R.id.content, details).commit();
         }
     }
-
-
 }
+
