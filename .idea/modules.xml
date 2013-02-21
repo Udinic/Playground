@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/BetterCompoundDrawable/BetterCompoundDrawable.iml" filepath="$PROJECT_DIR$/BetterCompoundDrawable/BetterCompoundDrawable.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FragmentBasics/FragmentBasics.iml" filepath="$PROJECT_DIR$/FragmentBasics/FragmentBasics.iml" />
       <module fileurl="file://$PROJECT_DIR$/GeneralTestings/GeneralTestings.iml" filepath="$PROJECT_DIR$/GeneralTestings/GeneralTestings.iml" />
       <module fileurl="file://$PROJECT_DIR$/ICS-Testing/ICS-Testing.iml" filepath="$PROJECT_DIR$/ICS-Testing/ICS-Testing.iml" />
       <module fileurl="file://$PROJECT_DIR$/SplashScreen/SplashScreen.iml" filepath="$PROJECT_DIR$/SplashScreen/SplashScreen.iml" />
