@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:orientation="vertical"
+              android:layout_height="fill_parent">
+    <Button android:id="@+id/makeSound"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="notification"/>
+    <Button android:id="@+id/ringtonePickerDefault"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Pick ringtone (Default)"/>
+    <Button android:id="@+id/ringtonePicker"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Pick ringtone"/>
+    <Button android:id="@+id/ringtoneReview"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Review ringtones"/>
+    <Button android:id="@+id/ringtoneReviewRM"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Review ringtones RM"/>
+    <Button android:id="@+id/registerSoundInternal"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Register sound (internal)"/>
+    <Button android:id="@+id/registerSoundExternal"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Register sound (external)"/>
+    <Button android:id="@+id/deleteSoundInternal"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Delete sound (internal)"/>
+    <Button android:id="@+id/deleteSoundExternal"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Delete sound (external)"/>
+
+</LinearLayout>

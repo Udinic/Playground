@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -33,6 +34,8 @@ public abstract class GeneralActivity extends Activity
                 startActivity(new Intent(GeneralActivity.this, MyActivity2.class));
             }
         });
+
+
     }
 
     @Override

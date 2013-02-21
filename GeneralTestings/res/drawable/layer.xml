@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <bitmap android:src="@drawable/exec_empty" />
+    </item>
+    <item android:id="@+id/udini">
+        <bitmap android:src="@drawable/exec_mail_big" android:gravity="center"/>
+    </item>
+</layer-list>

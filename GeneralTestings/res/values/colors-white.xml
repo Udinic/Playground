@@ -1,0 +1,58 @@
+<!-- ************************** -->
+<!--    White theme colors      -->
+<!-- ************************** -->
+
+<resources>
+    <color name="theme_main_color_wh">#FFFFFF</color>
+    <color name="general_text_wh">#000000</color>
+    <color name="general_text_opacity_wh">#40000000</color>
+    <color name="general_text_disabled_wh">#CCCCCC</color>
+    <color name="group_title_text_wh">#0099CC</color>
+    <color name="group_metadata_wh">#CCCCCC</color>
+    <color name="anydo_separator_wh">#C1C1C1</color>
+    <color name="explain_text_wh">#6b6b6b</color>
+    <color name="list_item_highlight_wh">#EEEEEE</color>
+    <color name="list_item_comment_text_wh">#BEBEBE</color>
+    <color name="list_item_dnd_bg_border_wh">#20000000</color>
+    <color name="list_item_dnd_bg_wh">#20FFFFFF</color>
+    <color name="flat_list_bg_wh">#F5F5F5</color>
+    <color name="done_list_bg_wh">#E5E5E5</color>
+    <color name="execution_text_wh">#009700</color>
+    <color name="quickedit_layout_bg_wh">#F5F5F6</color>
+    <color name="quickedit_button_text_wh">#666666</color>
+    <color name="list_item_checked_text_wh">#999999</color>
+    <color name="warning_wh">#FF0000</color>
+    <color name="sharing_activity_center_text_wh">#6B6B6B</color>
+    <color name="first_use_experience_desc_text_wh">#333333</color>
+    <color name="textbox_hint_text_wh">#D7D7D7</color>
+    <color name="textbox_border_wh">#A7C9D8</color>
+    <color name="textbox_border_highlight_wh">#FF0000</color>
+    <color name="textbox_rounded_background_wh">#F5F5F6</color>
+    <color name="small_widget_ticker_wh">#000000</color>
+    <color name="icons_wh">#0099CC</color>
+    <color name="progress_bar_bg_wh">#DFDEE1</color>
+
+    <color name="date_links_grad_start_wh">#F7F7F7</color>
+    <color name="date_links_grad_end_wh">#E2E2E2</color>
+
+    <color name="dialog_title_wh">#0099CC</color>
+    <color name="dialog_missed_call_title_wh">#FF0000</color>
+    <color name="dialog_missed_call_checkbox_wh">#666666</color>
+    <color name="dialog_border_wh">#CCCCCC</color>
+    <color name="dialog_button_text_wh">#666666</color>
+
+    <color name="button_border_wh">#E3E3E3</color>
+    <color name="button_border_disabled_wh">#DDDDDD</color>
+    <color name="button_text_wh">#666666</color>
+    <color name="button_text_disable_wh">#CCCCCC</color>
+
+    <color name="strikethrough_done_start_wh">#55BBBBBB</color>
+    <color name="strikethrough_done_end_wh">#55DDDDDD</color>
+    <color name="strikethrough_start_wh">#BBBBBB</color>
+    <color name="strikethrough_end_wh">#DDDDDD</color>
+
+    <color name="widget_divider_wh">#CFCFCF</color>
+
+    <color name="theme_border_selected">#0099CC</color>
+    <color name="theme_border_unselected">#CCCCCC</color>
+</resources>

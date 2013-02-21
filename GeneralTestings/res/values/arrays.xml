@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string-array name="moment_cycle">
+        <item>weekdays</item>
+        <item>everyday</item>
+        <item>manually</item>
+    </string-array>
+</resources>

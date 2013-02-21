@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.Window;
 
 
 public class MyActivity extends Activity {
@@ -12,6 +13,9 @@ public class MyActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
 
 //        MyStateSaver data = (MyStateSaver) getLastNonConfigurationInstance();
 //        if (data != null) {
@@ -65,7 +69,7 @@ public class MyActivity extends Activity {
      */
     protected void showSplashScreen() {
         mSplashDialog = new Dialog(this, R.style.SplashScreen);
-        mSplashDialog.setContentView(R.layout.splash);
+        mSplashDialog.setContentView(R.layout.splash2);
         mSplashDialog.setCancelable(false);
         mSplashDialog.show();
 
@@ -76,7 +80,7 @@ public class MyActivity extends Activity {
             public void run() {
                 removeSplashScreen();
             }
-        }, 3000);
+        }, 5000);
     }
 
 

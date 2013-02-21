@@ -39,7 +39,7 @@ public class Login extends Activity {
       getWindow().setFormat(PixelFormat.TRANSLUCENT);
       setContentView(R.layout.act_login);
 
-      String uri = "android.resource://" + getPackageName() + "/" + R.raw.test;
+      String uri = "android.resource://" + getPackageName() + "/" ; // Missing video file
 
       replay = findViewById(R.id.replay);
       replay.setOnClickListener(new View.OnClickListener() {

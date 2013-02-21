@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_height="wrap_content"
+android:layout_width="match_parent">
+<EditText
+        android:layout_height="wrap_content"
+        android:hint="invite"
+        android:id="@+id/invite_email"
+        android:inputType="textEmailAddress"
+        android:layout_width="wrap_content"
+        android:layout_toLeftOf="@+id/do_email_picker"
+        android:layout_alignParentLeft="true"></EditText>
+<Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/do_email_picker"
+        android:text="pivk"
+        android:layout_alignParentRight="true"
+        android:onClick="doLaunchContactPicker"></Button>
+</RelativeLayout>
