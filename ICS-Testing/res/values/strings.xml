@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ICS-Testing</string>
+    <string name="service_desc">Calendar Service to observe any changes in the Calendar</string>
+    <string name="help">help</string>
+    <string name="new_event">new</string>
 </resources>

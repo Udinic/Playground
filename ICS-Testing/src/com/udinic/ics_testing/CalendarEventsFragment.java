@@ -1,15 +1,24 @@
 package com.udinic.ics_testing;
 
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.app.ListFragment;
 import android.app.LoaderManager;
 import android.content.CursorLoader;
+import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.CalendarContract;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.CursorAdapter;
+import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.Toast;
 
 /**
  * Created with IntelliJ IDEA.
@@ -33,6 +42,8 @@ public class CalendarEventsFragment extends ListFragment implements LoaderManage
 
         adapter = new SimpleCursorAdapter(getActivity(), R.layout.list_item_calendars, null, from, to, CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
         setListAdapter(adapter);
+
+        setHasOptionsMenu(true);
     }
 
     public static CalendarEventsFragment newInstance(int calenderId) {
@@ -41,6 +52,51 @@ public class CalendarEventsFragment extends ListFragment implements LoaderManage
         args.putInt("calendarId", calenderId);
         fragment.setArguments(args);
         return fragment;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_events, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case (R.id.new_event):
+                Toast.makeText(getActivity(), "NEW", Toast.LENGTH_SHORT).show();
+                break;
+            case (R.id.help):
+                Toast.makeText(getActivity(), "HELP", Toast.LENGTH_SHORT).show();
+                break;
+        }
+        return super.onOptionsItemSelected(item);    //To change body of overridden methods use File | Settings | File Templates.
+    }
+
+    private void eventSelected(int position, int id) {
+        boolean isDualView = getActivity().findViewById(R.id.fragment_container) != null;
+
+        if (isDualView) {
+            getListView().setItemChecked(position,true);
+//            Fragment eventsFragment = getFragmentManager().findFragmentById(R.id.fragment_container);
+            Fragment eventsFragment = CalendarEventAttendeesFragment.newInstance(id);
+
+            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+            transaction.replace(R.id.fragment_container, eventsFragment);
+
+            transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+            transaction.addToBackStack(null);
+            transaction.commit();
+        } else {
+            Intent intent = new Intent(getActivity(), CalendarEventsActivity.class);
+            intent.putExtra("eventId", id);
+            startActivity(intent);
+        }
+    }
+
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        eventSelected(position, (int)id);
     }
 
     public int getShownCalendarId() {

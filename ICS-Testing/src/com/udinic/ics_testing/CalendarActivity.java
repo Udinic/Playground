@@ -1,6 +1,10 @@
 package com.udinic.ics_testing;
 
+import android.accounts.Account;
+import android.accounts.AccountManager;
 import android.app.Activity;
+import android.content.ContentResolver;
+import android.content.Intent;
 import android.database.ContentObserver;
 import android.net.Uri;
 import android.os.Bundle;
@@ -21,27 +25,15 @@ public class CalendarActivity extends Activity {
         super.onCreate(savedInstanceState);    //To change body of overridden methods use File | Settings | File Templates.
         setContentView(R.layout.act_cal_list);
 
+        startService(new Intent(this, CalendarService.class));
+        Account accounts[] = AccountManager.get(this).getAccounts();
+        for (Account acc : accounts) {
+            Bundle bundle = new Bundle();
+            bundle.putBoolean(ContentResolver.SYNC_EXTRAS_EXPEDITED, true);
+            bundle.putBoolean(ContentResolver.SYNC_EXTRAS_FORCE, true);
+            bundle.putBoolean(ContentResolver.SYNC_EXTRAS_MANUAL, true);
+            ContentResolver.requestSync(acc, "com.android.calendar", bundle);
+        }
 
-        Uri uri = CalendarContract.Events.CONTENT_URI;
-
-        getContentResolver().registerContentObserver(uri, true, new ContentObserver(new Handler()) {
-            @Override
-            public boolean deliverSelfNotifications() {
-                Log.d("udini", "deliverSelfNotifications");
-                return super.deliverSelfNotifications();    //To change body of overridden methods use File | Settings | File Templates.
-            }
-
-            @Override
-            public void onChange(boolean selfChange) {
-                Log.d("udini", "onChange(" + selfChange + ")");
-                super.onChange(selfChange);    //To change body of overridden methods use File | Settings | File Templates.
-            }
-
-            @Override
-            public void onChange(boolean selfChange, Uri uri) {
-                Log.d("udini", "onChange(" + selfChange + ","+uri+")");
-                super.onChange(selfChange, uri);    //To change body of overridden methods use File | Settings | File Templates.
-            }
-        });
     }
 }
