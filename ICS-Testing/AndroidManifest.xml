@@ -26,12 +26,25 @@
                 android:description="@string/service_desc"/>
 
         <receiver android:name=".EventReminderReceiver" >
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.EVENT_REMINDER" />-->
+                <!--<data android:mimeType="vnd.android.cursor.item/calendar-alert" />-->
+            <!--</intent-filter>-->
             <intent-filter>
-                <action android:name="android.intent.action.EVENT_REMINDER"/>
+                <action android:name="android.intent.action.EVENT_REMINDER" />
+                <action android:name="android.intent.action.LOCALE_CHANGED" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.TIME_SET" />
+                <data android:scheme="content" />
             </intent-filter>
 
         </receiver>
 
+        <service android:name=".ReminderService" >
+            <intent-filter>
+                <action android:name="com.udinic.ics_testing.REMINDER_SERVICE"/>
+            </intent-filter>
+        </service>
 
     </application>
 

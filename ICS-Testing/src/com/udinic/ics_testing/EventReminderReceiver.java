@@ -15,6 +15,12 @@ import android.util.Log;
 public class EventReminderReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.d("udini", "got EVENT!");
+        Log.d("udini", "got EVENT! ["+intent.getAction()+"]");
+
+//        Intent intent1 = new Intent(context, ReminderService.class);
+//        intent1.putExtras(intent.getExtras());
+//
+        intent.setClass(context, ReminderService.class);
+        context.startService(intent);
     }
 }
