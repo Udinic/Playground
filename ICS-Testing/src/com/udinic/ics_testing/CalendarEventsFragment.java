@@ -4,13 +4,13 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.app.ListFragment;
 import android.app.LoaderManager;
-import android.content.CursorLoader;
-import android.content.Intent;
-import android.content.Loader;
+import android.content.*;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.CalendarContract;
+import android.text.format.Time;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -19,6 +19,8 @@ import android.widget.CursorAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
+
+import java.util.Calendar;
 
 /**
  * Created with IntelliJ IDEA.
@@ -56,7 +58,7 @@ public class CalendarEventsFragment extends ListFragment implements LoaderManage
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
+//        super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.menu_events, menu);
     }
 
@@ -64,7 +66,7 @@ public class CalendarEventsFragment extends ListFragment implements LoaderManage
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case (R.id.new_event):
-                Toast.makeText(getActivity(), "NEW", Toast.LENGTH_SHORT).show();
+                addEvent();
                 break;
             case (R.id.help):
                 Toast.makeText(getActivity(), "HELP", Toast.LENGTH_SHORT).show();
@@ -129,4 +131,31 @@ public class CalendarEventsFragment extends ListFragment implements LoaderManage
     public void onLoaderReset(Loader<Cursor> cursorLoader) {
         adapter.swapCursor(null);
     }
+
+    private void addEvent() {
+
+        long calID = getShownCalendarId();
+        long startMillis = 0;
+        long endMillis = 0;
+        Calendar beginTime = Calendar.getInstance();
+        beginTime.set(2013, 2, 26, 7, 30);
+        startMillis = beginTime.getTimeInMillis();
+        Calendar endTime = Calendar.getInstance();
+        endTime.set(2013, 2, 26, 8, 45);
+        endMillis = endTime.getTimeInMillis();
+
+        ContentResolver cr = getActivity().getContentResolver();
+        ContentValues values = new ContentValues();
+        values.put(CalendarContract.Events.DTSTART, startMillis);
+        values.put(CalendarContract.Events.DTEND, endMillis);
+        values.put(CalendarContract.Events.TITLE, "Udini Event");
+        values.put(CalendarContract.Events.DESCRIPTION, "Desc for the vent");
+        values.put(CalendarContract.Events.CALENDAR_ID, calID);
+        values.put(CalendarContract.Events.EVENT_TIMEZONE, "America/Los_Angeles");
+        Uri uri = cr.insert(CalendarContract.Events.CONTENT_URI, values);
+        long eventID = Long.parseLong(uri.getLastPathSegment());
+
+        Log.d("Udini", "New event created = " + eventID);
+    }
+
 }

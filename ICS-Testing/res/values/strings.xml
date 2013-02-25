@@ -4,4 +4,7 @@
     <string name="service_desc">Calendar Service to observe any changes in the Calendar</string>
     <string name="help">help</string>
     <string name="new_event">new</string>
+    <string name="menu_rsvp_coming">coming</string>
+    <string name="menu_rsvp_maybe">maybe</string>
+    <string name="menu_rsvp_not_coming">not coming</string>
 </resources>

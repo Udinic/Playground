@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/new_event"
+          android:title="@string/new_event"
+            />
+    <item android:id="@+id/coming"
+          android:title="@string/menu_rsvp_coming" />
+    <item android:id="@+id/maybe"
+          android:title="@string/menu_rsvp_maybe" />
+    <item android:id="@+id/not_coming"
+          android:title="@string/menu_rsvp_not_coming" />
+</menu>
