@@ -5,7 +5,7 @@
               android:layout_height="match_parent">
 
     <fragment android:id="@+id/calendarEvents"
-              class="com.udinic.ics_testing.CalendarEventsFragment"
+              class="com.udinic.ics_testing.CalendarInstancesFragment"
               android:layout_width="match_parent"
               android:layout_height="match_parent"/>
 

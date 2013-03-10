@@ -9,7 +9,6 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.CalendarContract;
-import android.text.format.Time;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -30,7 +29,7 @@ import java.util.Calendar;
  * To change this template use File | Settings | File Templates.
  */
 public class CalendarEventsFragment extends ListFragment implements LoaderManager.LoaderCallbacks<Cursor> {
-    private static final int LOADER_UDINI = 1;
+    private static final int LOADER_EVENTS = 1;
     SimpleCursorAdapter adapter;
 
     @Override
@@ -40,7 +39,7 @@ public class CalendarEventsFragment extends ListFragment implements LoaderManage
         String from[] = new String[]{CalendarContract.Events.TITLE};
         int to[] = {R.id.title};
 
-        getLoaderManager().initLoader(LOADER_UDINI, getArguments(), this);
+        getLoaderManager().initLoader(LOADER_EVENTS, getArguments(), this);
 
         adapter = new SimpleCursorAdapter(getActivity(), R.layout.list_item_calendars, null, from, to, CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
         setListAdapter(adapter);
@@ -108,7 +107,7 @@ public class CalendarEventsFragment extends ListFragment implements LoaderManage
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
         switch (i) {
-            case (LOADER_UDINI):
+            case (LOADER_EVENTS):
                 Uri uri = CalendarContract.Events.CONTENT_URI;
                 String[] projection = new String[] {
                         CalendarContract.Events._ID,

@@ -14,6 +14,8 @@ import android.util.Log;
  * To change this template use File | Settings | File Templates.
  */
 public class ReminderService extends IntentService {
+    private static final String TAG = CalendarActivity.MAIN_TAG + " > ReminderService";
+
     /**
      * Creates an IntentService.  Invoked by your subclass's constructor.
      *
@@ -24,12 +26,12 @@ public class ReminderService extends IntentService {
 
     @Override
     protected void onHandleIntent(Intent intent) {
-        Log.d("udini", "Got intent");
+//        Log.d(TAG, "Got intent");
 
         Uri uri = intent.getData();
-        Log.d("udini", "Querying form Uri ["+uri+"]");
+//        Log.d(TAG, "Querying form Uri ["+uri+"]");
 //        Cursor cursor = getContentResolver().query(uri, null, null, null, null);
-//        while (cursor.moveToNext()) {
+//        while (cd:ursor.moveToNext()) {
 //            for (String name : cursor.getColumnNames()) {
 //                int idx = cursor.getColumnIndex(name);
 //                int type = cursor.getType(idx);

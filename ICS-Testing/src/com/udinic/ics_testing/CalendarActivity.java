@@ -20,6 +20,7 @@ import android.util.Log;
  * To change this template use File | Settings | File Templates.
  */
 public class CalendarActivity extends Activity {
+    public static final String MAIN_TAG = "CalendarTesting";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);    //To change body of overridden methods use File | Settings | File Templates.
@@ -30,10 +31,26 @@ public class CalendarActivity extends Activity {
         for (Account acc : accounts) {
             Bundle bundle = new Bundle();
             bundle.putBoolean(ContentResolver.SYNC_EXTRAS_EXPEDITED, true);
-            bundle.putBoolean(ContentResolver.SYNC_EXTRAS_FORCE, true);
             bundle.putBoolean(ContentResolver.SYNC_EXTRAS_MANUAL, true);
             ContentResolver.requestSync(acc, "com.android.calendar", bundle);
         }
 
+        onNewIntent(getIntent());
     }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+
+        if (intent != null)
+            Log.d("udini", "Started CalendarActivity with action " + intent.getAction());
+
+    }
+
+    @Override
+    public void finish() {
+        setResult(RESULT_OK);
+        super.finish();
+    }
+
 }

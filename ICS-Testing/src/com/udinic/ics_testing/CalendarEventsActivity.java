@@ -28,7 +28,7 @@ public class CalendarEventsActivity extends Activity {
 
         if (savedInstanceState == null) {
             // During initial setup, plug in the details fragment.
-            CalendarEventsFragment details = new CalendarEventsFragment();
+            CalendarInstancesFragment details = new CalendarInstancesFragment();
             details.setArguments(getIntent().getExtras());
             getFragmentManager().beginTransaction().add(android.R.id.content, details).commit();
         }

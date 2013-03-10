@@ -23,22 +23,24 @@ import static android.content.ContentResolver.SYNC_OBSERVER_TYPE_SETTINGS;
  * To change this template use File | Settings | File Templates.
  */
 public class CalendarService extends Service {
+    private static final String TAG = CalendarActivity.MAIN_TAG + " > CalendarService";
+
     ContentObserver mEventsObserver = new ContentObserver(new Handler()) {
         @Override
         public boolean deliverSelfNotifications() {
-            Log.d("CalendarService", "deliverSelfNotifications");
+            Log.d(TAG, "deliverSelfNotifications");
             return super.deliverSelfNotifications();    //To change body of overridden methods use File | Settings | File Templates.
         }
 
         @Override
         public void onChange(boolean selfChange) {
-            Log.d("CalendarService", "onChange(" + selfChange + ")");
+            Log.d(TAG, "onChange(" + selfChange + ")");
             super.onChange(selfChange);    //To change body of overridden methods use File | Settings | File Templates.
         }
 
         @Override
         public void onChange(boolean selfChange, Uri uri) {
-            Log.d("CalendarService", "onChange(" + selfChange + "," + uri + ")");
+            Log.d(TAG, "onChange(" + selfChange + "," + uri + ")");
             super.onChange(selfChange, uri);    //To change body of overridden methods use File | Settings | File Templates.
         }
     };
@@ -50,14 +52,14 @@ public class CalendarService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.d("CalendarService", "onStartCommand");
+        Log.d(TAG, "onStartCommand");
         return START_STICKY;
     }
 
     @Override
     public void onCreate() {
 
-        Log.d("CalendarService", "onCreate");
+        Log.d(TAG, "onCreate");
         getContentResolver().registerContentObserver(CalendarContract.CONTENT_URI, true, mEventsObserver);
 
         ContentResolver.addStatusChangeListener(SYNC_OBSERVER_TYPE_ACTIVE | SYNC_OBSERVER_TYPE_PENDING | SYNC_OBSERVER_TYPE_SETTINGS, new SyncStatusObserver() {
@@ -78,7 +80,7 @@ public class CalendarService extends Service {
                         whichStr = "DUNNO";
                         break;
                 }
-//                Log.d("CalendarService", "onSyncStatusChange[" + which + "|" + whichStr + "]");
+//                Log.d(TAG, "onSyncStatusChange[" + which + "|" + whichStr + "]");
             }
         });
     }

@@ -53,10 +53,10 @@ public class CalendarNamesFragment extends ListFragment implements LoaderManager
 
         if (isDualView) {
             getListView().setItemChecked(position,true);
-            CalendarEventsFragment eventsFragment = (CalendarEventsFragment) getFragmentManager().findFragmentById(R.id.fragment_container);
+            CalendarInstancesFragment eventsFragment = (CalendarInstancesFragment) getFragmentManager().findFragmentById(R.id.fragment_container);
 
             if (eventsFragment == null || eventsFragment.getShownCalendarId() != id) {
-                eventsFragment = CalendarEventsFragment.newInstance(id);
+                eventsFragment = CalendarInstancesFragment.newInstance(id);
 
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.fragment_container, eventsFragment);
