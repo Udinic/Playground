@@ -22,10 +22,28 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.cookie.Cookie;
+import org.apache.http.impl.client.BasicCookieStore;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpParams;
+import org.apache.http.util.EntityUtils;
 
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.CookieManager;
+import java.net.CookieStore;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 
 /**
@@ -44,9 +62,54 @@ public class RandomStuff extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.act_slidedrawer);
+        setContentView(R.layout.act_login);
 
+        HttpResponse res = connect("udinic.testingppp@gmail.com", "qwerty");
     }
+
+    private HttpResponse connect(final String user, final String pass) {
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                DefaultHttpClient httpClient = new DefaultHttpClient();
+
+                BasicCookieStore cm = new BasicCookieStore();
+                httpClient.setCookieStore(cm);
+
+                HttpPost httpPost = new HttpPost("http://sm-dev.any.do/j_spring_security_check");
+
+                List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+                nameValuePairs.add(new BasicNameValuePair("j_username", user));
+                nameValuePairs.add(new BasicNameValuePair("j_password", pass));
+                nameValuePairs.add(new BasicNameValuePair("_spring_security_remember_me", "on"));
+                try {
+                    httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+
+                try {
+                    HttpResponse response = httpClient.execute(httpPost);
+                    String responseString = EntityUtils.toString(response.getEntity());
+
+                    String authtoken = null;
+                    List<Cookie> cookies = cm.getCookies();
+                    for (Cookie cookie : cookies) {
+                        if (cookie.getName().equals("SPRING_SECURITY_REMEMBER_ME_COOKIE")) {
+                            authtoken = cookie.getValue();
+                            break;
+                        }
+                    }
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+        return null;
+    }
+
 
     public static Bitmap drawableToBitmap (Drawable drawable) {
         if (drawable instanceof BitmapDrawable) {

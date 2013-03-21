@@ -8,6 +8,8 @@
       <directory url="file://$PROJECT_DIR$/GeneralTestings/gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/SplashScreen/gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/FragmentBasics/gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/ActivitySplitAnimation/gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/AccountAuthenticator/gen" includeSubdirectories="true" />
     </excludeFromCompile>
     <resourceExtensions />
     <wildcardResourcePatterns>
@@ -27,6 +29,9 @@
         <processorPath useClasspath="true" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="AccountAuthenticator" target="1.6" />
+    </bytecodeTargetLevel>
   </component>
 </project>
 

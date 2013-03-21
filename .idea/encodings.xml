@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
+    <file url="file://$PROJECT_DIR$/AccountAuthenticator" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/AccountAuthenticator/pom.xml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/GeneralTestings/res/drawable-xhdpi/exec_call_big.png" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/GeneralTestings/res/drawable-xhdpi/exec_empty.png" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/GeneralTestings/res/drawable-xhdpi/exec_mail_big.png" charset="UTF-8" />
