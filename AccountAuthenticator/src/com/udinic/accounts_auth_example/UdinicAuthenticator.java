@@ -8,7 +8,6 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import static android.accounts.AccountManager.KEY_BOOLEAN_RESULT;
-import static com.udinic.accounts_auth_example.Consts.AUTHTOKEN_TYPE;
 import static com.udinic.accounts_auth_example.ServerUtils.connect;
 
 /**
@@ -46,7 +45,7 @@ public class UdinicAuthenticator extends AbstractAccountAuthenticator {
 
         // If the caller requested an authToken type we don't support, then
         // return an error
-        if (!authTokenType.equals(AUTHTOKEN_TYPE)) {
+        if (!authTokenType.equals(Consts.AUTHTOKEN_TYPE1) || !authTokenType.equals(Consts.AUTHTOKEN_TYPE2)) {
             final Bundle result = new Bundle();
             result.putString(AccountManager.KEY_ERROR_MESSAGE, "invalid authTokenType");
             return result;
@@ -88,7 +87,7 @@ public class UdinicAuthenticator extends AbstractAccountAuthenticator {
 
     @Override
     public String getAuthTokenLabel(String authTokenType) {
-        return authTokenType.equals(Consts.AUTHTOKEN_TYPE) ? authTokenType : null;
+        return (authTokenType.equals(Consts.AUTHTOKEN_TYPE1) ? "auth1 label: ": "auth2 label")+ authTokenType;
     }
 
     @Override

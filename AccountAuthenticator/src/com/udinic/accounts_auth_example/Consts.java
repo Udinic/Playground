@@ -19,9 +19,10 @@ public class Consts {
     public static final String ACCOUNT_NAME = "Udinic";
 
     /**
-     * Auth token type
+     * Auth token types
      */
-    public static final String AUTHTOKEN_TYPE = ACCOUNT_TYPE;
+    public static final String AUTHTOKEN_TYPE1 = "See list of tasks";
+    public static final String AUTHTOKEN_TYPE2 = "Add and manipulate task list";
 
 
 }

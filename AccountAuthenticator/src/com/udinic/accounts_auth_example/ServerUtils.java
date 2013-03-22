@@ -24,7 +24,7 @@ import java.util.List;
  */
 public class ServerUtils {
 
-    public static String connect(final String user, final String pass) {
+    public static String connect(final String user, final String pass, String authType) {
 
         Log.d("udini", "ServerUtils > connect");
 
@@ -34,7 +34,15 @@ public class ServerUtils {
         BasicCookieStore cm = new BasicCookieStore();
         httpClient.setCookieStore(cm);
 
-        HttpPost httpPost = new HttpPost("http://sm-dev.any.do/j_spring_security_check");
+        String url = null;
+
+        if (Consts.AUTHTOKEN_TYPE1.equals(authType))
+            url = "http://sm-dev.any.do/j_spring_security_check";
+        else if (Consts.AUTHTOKEN_TYPE2.equals(authType))
+            url = "http://sm-dev.any.do/j_spring_security_check";
+
+
+        HttpPost httpPost = new HttpPost(url);
 
         List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
         nameValuePairs.add(new BasicNameValuePair("j_username", user));
