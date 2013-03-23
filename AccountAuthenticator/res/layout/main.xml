@@ -2,15 +2,20 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
-              android:paddingLeft="17dp"
-              android:paddingRight="17dp"
+              android:padding="17dp"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <Button android:id="@+id/request"
+    <Button android:id="@+id/request1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="Request"/>
+            android:text="Request Account 1"/>
+
+    <Button android:id="@+id/request2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Request Account 2"/>
 
 </LinearLayout>

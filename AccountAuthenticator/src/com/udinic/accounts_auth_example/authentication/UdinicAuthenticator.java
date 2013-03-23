@@ -1,4 +1,4 @@
-package com.udinic.accounts_auth_example;
+package com.udinic.accounts_auth_example.authentication;
 
 import android.accounts.*;
 import android.content.Context;
@@ -6,9 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import com.udinic.accounts_auth_example.Consts;
 
 import static android.accounts.AccountManager.KEY_BOOLEAN_RESULT;
-import static com.udinic.accounts_auth_example.ServerUtils.connect;
+import static com.udinic.accounts_auth_example.authentication.ServerUtils.connect;
 
 /**
  * Created with IntelliJ IDEA.
@@ -33,6 +34,8 @@ public class UdinicAuthenticator extends AbstractAccountAuthenticator {
         Log.d(TAG, "addAccount");
 
         final Intent intent = new Intent(mContext, AuthenticatorActivity.class);
+        intent.putExtra(AuthenticatorActivity.PARAM_ACCOUNT_TYPE, accountType);
+        intent.putExtra(AuthenticatorActivity.PARAM_AUTH_TYPE, authTokenType);
         intent.putExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response);
 
         final Bundle bundle = new Bundle();
@@ -43,9 +46,11 @@ public class UdinicAuthenticator extends AbstractAccountAuthenticator {
     @Override
     public Bundle getAuthToken(AccountAuthenticatorResponse response, Account account, String authTokenType, Bundle options) throws NetworkErrorException {
 
+        Log.d(TAG, "getAuthToken");
+
         // If the caller requested an authToken type we don't support, then
         // return an error
-        if (!authTokenType.equals(Consts.AUTHTOKEN_TYPE1) || !authTokenType.equals(Consts.AUTHTOKEN_TYPE2)) {
+        if (!authTokenType.equals(Consts.AUTHTOKEN_TYPE_READ_ONLY) && !authTokenType.equals(Consts.AUTHTOKEN_TYPE_FULL_ACCESS)) {
             final Bundle result = new Bundle();
             result.putString(AccountManager.KEY_ERROR_MESSAGE, "invalid authTokenType");
             return result;
@@ -55,13 +60,13 @@ public class UdinicAuthenticator extends AbstractAccountAuthenticator {
         // the server for an appropriate AuthToken.
         final AccountManager am = AccountManager.get(mContext);
 
-        String authToken = AccountManager.get(mContext).peekAuthToken(account, authTokenType);
+        String authToken = am.peekAuthToken(account, authTokenType);
 
         // Lets give another try to authenticate the user
         if (TextUtils.isEmpty(authToken)) {
             final String password = am.getPassword(account);
             if (password != null) {
-                authToken = connect(account.name, password);
+                authToken = connect(account.name, password, authTokenType,account.type);
             }
         }
 
@@ -69,7 +74,7 @@ public class UdinicAuthenticator extends AbstractAccountAuthenticator {
         if (!TextUtils.isEmpty(authToken)) {
             final Bundle result = new Bundle();
             result.putString(AccountManager.KEY_ACCOUNT_NAME, account.name);
-            result.putString(AccountManager.KEY_ACCOUNT_TYPE, Consts.ACCOUNT_TYPE);
+            result.putString(AccountManager.KEY_ACCOUNT_TYPE, account.type);
             result.putString(AccountManager.KEY_AUTHTOKEN, authToken);
             return result;
         }
@@ -79,6 +84,8 @@ public class UdinicAuthenticator extends AbstractAccountAuthenticator {
         // an intent to display our AuthenticatorActivity panel.
         final Intent intent = new Intent(mContext, AuthenticatorActivity.class);
         intent.putExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response);
+        intent.putExtra(AuthenticatorActivity.PARAM_ACCOUNT_TYPE, account.type);
+        intent.putExtra(AuthenticatorActivity.PARAM_AUTH_TYPE, authTokenType);
         final Bundle bundle = new Bundle();
         bundle.putParcelable(AccountManager.KEY_INTENT, intent);
         return bundle;
@@ -87,7 +94,8 @@ public class UdinicAuthenticator extends AbstractAccountAuthenticator {
 
     @Override
     public String getAuthTokenLabel(String authTokenType) {
-        return (authTokenType.equals(Consts.AUTHTOKEN_TYPE1) ? "auth1 label: ": "auth2 label")+ authTokenType;
+        return authTokenType + " (Label)";
+//        return (authTokenType.equals(Consts.AUTHTOKEN_TYPE_READ_ONLY) ? "auth1 label: ": "auth2 label")+ authTokenType;
     }
 
     @Override

@@ -16,9 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".AuthenticatorActivity"/>
+        <activity android:name=".authentication.AuthenticatorActivity"/>
 
-        <service android:name=".UdinicAuthenticatorService">
+        <service android:name=".authentication.UdinicAuthenticatorService">
             <intent-filter>
                 <action android:name="android.accounts.AccountAuthenticator" />
             </intent-filter>

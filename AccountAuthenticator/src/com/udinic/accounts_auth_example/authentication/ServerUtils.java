@@ -1,6 +1,7 @@
-package com.udinic.accounts_auth_example;
+package com.udinic.accounts_auth_example.authentication;
 
 import android.util.Log;
+import com.udinic.accounts_auth_example.Consts;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
@@ -24,7 +25,7 @@ import java.util.List;
  */
 public class ServerUtils {
 
-    public static String connect(final String user, final String pass, String authType) {
+    public static String connect(final String user, final String pass, String authType, String accountType) {
 
         Log.d("udini", "ServerUtils > connect");
 
@@ -36,9 +37,9 @@ public class ServerUtils {
 
         String url = null;
 
-        if (Consts.AUTHTOKEN_TYPE1.equals(authType))
+        if (Consts.ACCOUNT_TYPE1.equals(accountType))
             url = "http://sm-dev.any.do/j_spring_security_check";
-        else if (Consts.AUTHTOKEN_TYPE2.equals(authType))
+        else if (Consts.ACCOUNT_TYPE2.equals(accountType))
             url = "http://sm-dev.any.do/j_spring_security_check";
 
 

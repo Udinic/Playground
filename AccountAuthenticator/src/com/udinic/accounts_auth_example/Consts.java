@@ -11,7 +11,8 @@ public class Consts {
     /**
      * Account type id
      */
-    public static final String ACCOUNT_TYPE = "com.udinic.accounts_auth_example";
+    public static final String ACCOUNT_TYPE1 = "com.udinic.accounts_auth_example.app1";
+    public static final String ACCOUNT_TYPE2 = "com.udinic.accounts_auth_example.app2";
 
     /**
      * Account name
@@ -21,8 +22,8 @@ public class Consts {
     /**
      * Auth token types
      */
-    public static final String AUTHTOKEN_TYPE1 = "See list of tasks";
-    public static final String AUTHTOKEN_TYPE2 = "Add and manipulate task list";
+    public static final String AUTHTOKEN_TYPE_READ_ONLY = "Read only";
+    public static final String AUTHTOKEN_TYPE_FULL_ACCESS = "Full access";
 
 
 }
