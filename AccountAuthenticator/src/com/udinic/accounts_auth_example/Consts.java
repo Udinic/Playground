@@ -11,8 +11,7 @@ public class Consts {
     /**
      * Account type id
      */
-    public static final String ACCOUNT_TYPE1 = "com.udinic.accounts_auth_example.app1";
-    public static final String ACCOUNT_TYPE2 = "com.udinic.accounts_auth_example.app2";
+    public static final String ACCOUNT_TYPE = "com.udinic.auth_example";
 
     /**
      * Account name

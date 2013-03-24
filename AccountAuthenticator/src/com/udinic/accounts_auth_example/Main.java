@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Toast;
 
 import java.io.IOException;
-import java.util.logging.Handler;
 
 /**
  * Created with IntelliJ IDEA.
@@ -21,9 +20,7 @@ public class Main extends Activity {
     private String TAG = this.getClass().getSimpleName();
     private android.os.Handler mHandler = new android.os.Handler();
 
-
     @Override
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -31,22 +28,21 @@ public class Main extends Activity {
         findViewById(R.id.request1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                request(Consts.ACCOUNT_TYPE1);
+                request(Consts.AUTHTOKEN_TYPE_FULL_ACCESS);
             }
         });
         findViewById(R.id.request2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                request(Consts.ACCOUNT_TYPE1);
+                request(Consts.AUTHTOKEN_TYPE_READ_ONLY);
             }
         });
     }
 
-    private void request(String accountType) {
+    private void request(String authTokenType) {
 
         AccountManager am = AccountManager.get(this);
-
-        Account account = new Account("udinic.testingppp@gmail.com", accountType);
+        Account account = new Account("udinic.testingppp@gmail.com", Consts.ACCOUNT_TYPE);
 
 //        try {
 //            String auth = am.blockingGetAuthToken(account, Consts.AUTHTOKEN_TYPE, true);
@@ -58,22 +54,7 @@ public class Main extends Activity {
 //        } catch (AuthenticatorException e) {
 //            e.printStackTrace();
 //        }
-
-        final AccountManagerFuture<Bundle> future = am.getAuthToken(account, Consts.AUTHTOKEN_TYPE_FULL_ACCESS, null, this, null,null);
-//        final AccountManagerFuture<Bundle> future = am.getAuthToken(account, Consts.AUTHTOKEN_TYPE, null, this, new AccountManagerCallback<Bundle>() {
-//            @Override
-//            public void run(AccountManagerFuture<Bundle> future) {
-//
-//                Log.d("udini", TAG + "> in AccountManagerCallback");
-//                try {
-//                    Bundle bundle = future.getResult();
-//                    Log.d("udini", TAG + "> got the results");
-//
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        }, mHandler);
+        final AccountManagerFuture<Bundle> future = am.getAuthToken(account, authTokenType, null, this, null,null);
 
         new Thread(new Runnable() {
             @Override

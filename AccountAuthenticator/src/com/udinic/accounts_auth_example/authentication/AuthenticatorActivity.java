@@ -47,8 +47,8 @@ public class AuthenticatorActivity extends AccountAuthenticatorActivity {
         final String authType = this.getIntent().getStringExtra(PARAM_AUTH_TYPE);
 
 //        if (accountType == null) {
-//            Log.w("udini", TAG + "> No account type was found. Defaulting to " + Consts.ACCOUNT_TYPE1);
-//            accountType = Consts.ACCOUNT_TYPE1;
+//            Log.w("udini", TAG + "> No account type was found. Defaulting to " + Consts.ACCOUNT_TYPE);
+//            accountType = Consts.ACCOUNT_TYPE;
 //        }
 //
 //        final String finalAccountType = accountType;
@@ -59,7 +59,7 @@ public class AuthenticatorActivity extends AccountAuthenticatorActivity {
 
                 Log.d("udini", TAG + "> Started authenticating");
 
-                String authtoken = connect(userName, userPass, authType, accountType);
+                String authtoken = connect(userName, userPass, authType);
 
                 final Account account = new Account(userName, accountType);
                 mAccountManager = AccountManager.get(getBaseContext());
