@@ -1,4 +1,4 @@
-package com.udinic.accounts_auth_example;
+package com.udinic.accounts_auth_example.authentication;
 
 import android.accounts.Account;
 import android.accounts.AccountAuthenticatorActivity;
@@ -9,25 +9,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.cookie.Cookie;
-import org.apache.http.impl.client.BasicCookieStore;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
+import com.udinic.accounts_auth_example.R;
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.List;
-
-import static com.udinic.accounts_auth_example.ServerUtils.connect;
+import static com.udinic.accounts_auth_example.authentication.ServerUtils.connect;
 
 public class AuthenticatorActivity extends AccountAuthenticatorActivity {
 
+    public final static String PARAM_ACCOUNT_TYPE = "ACCOUNT_TYPE";
+    public final static String PARAM_AUTH_TYPE = "AUTH_TYPE";
     private final String TAG = this.getClass().getSimpleName();
 
     private AccountManager mAccountManager;
@@ -39,6 +28,7 @@ public class AuthenticatorActivity extends AccountAuthenticatorActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_login);
+        ((TextView)findViewById(R.id.type)).setText(getIntent().getStringExtra(PARAM_ACCOUNT_TYPE));
 
         findViewById(R.id.submit).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,12 +43,15 @@ public class AuthenticatorActivity extends AccountAuthenticatorActivity {
         final String userName = ((TextView) findViewById(R.id.userName)).getText().toString();
         final String userPass = ((TextView) findViewById(R.id.userPass)).getText().toString();
 
-        String accountType = this.getIntent().getStringExtra(Consts.AUTHTOKEN_TYPE);
-        if (accountType == null) {
-            accountType = Consts.ACCOUNT_TYPE;
-        }
+        final String accountType = this.getIntent().getStringExtra(PARAM_ACCOUNT_TYPE);
+        final String authType = this.getIntent().getStringExtra(PARAM_AUTH_TYPE);
 
-        final String finalAccountType = accountType;
+//        if (accountType == null) {
+//            Log.w("udini", TAG + "> No account type was found. Defaulting to " + Consts.ACCOUNT_TYPE);
+//            accountType = Consts.ACCOUNT_TYPE;
+//        }
+//
+//        final String finalAccountType = accountType;
         new AsyncTask<String, Void, Intent>() {
 
             @Override
@@ -66,15 +59,15 @@ public class AuthenticatorActivity extends AccountAuthenticatorActivity {
 
                 Log.d("udini", TAG + "> Started authenticating");
 
-                String authtoken = connect(userName, userPass);
+                String authtoken = connect(userName, userPass, authType);
 
-                final Account account = new Account(userName, finalAccountType);
+                final Account account = new Account(userName, accountType);
                 mAccountManager = AccountManager.get(getBaseContext());
                 mAccountManager.addAccountExplicitly(account, userPass, null);
 
                 final Intent res = new Intent();
                 res.putExtra(AccountManager.KEY_ACCOUNT_NAME, userName);
-                res.putExtra(AccountManager.KEY_ACCOUNT_TYPE, finalAccountType);
+                res.putExtra(AccountManager.KEY_ACCOUNT_TYPE, accountType);
                 res.putExtra(AccountManager.KEY_AUTHTOKEN, authtoken);
 
                 return res;
@@ -82,15 +75,15 @@ public class AuthenticatorActivity extends AccountAuthenticatorActivity {
 
             @Override
             protected void onPostExecute(Intent intent) {
-                finishLogin(userName, userPass, intent);
+                finishLogin(userName, userPass, accountType, intent);
             }
         }.execute();
     }
 
-    private void finishLogin(String userName, String password, Intent intent) {
+    private void finishLogin(String userName, String password, String accountType, Intent intent) {
         Log.d("udini", TAG + "> finishLogin");
 
-        final Account account = new Account(userName, Consts.ACCOUNT_TYPE);
+        final Account account = new Account(userName, accountType);
 //        if (mRequestNewAccount) {
         mAccountManager.addAccountExplicitly(account, password, null);
             // Set contacts sync for this account.

@@ -1,4 +1,4 @@
-package com.udinic.accounts_auth_example;
+package com.udinic.accounts_auth_example.authentication;
 
 import android.app.Service;
 import android.content.Intent;

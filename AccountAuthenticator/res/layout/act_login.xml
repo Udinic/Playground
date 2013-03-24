@@ -8,11 +8,16 @@
               android:paddingRight="17dp"
         >
 
+    <TextView android:id="@+id/type"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="20dp"
+              android:text="account type"/>
+
     <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Enter credentials"
-            android:layout_marginTop="20dp"
             />
 
     <EditText android:id="@+id/userName"
