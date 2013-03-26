@@ -8,34 +8,20 @@
               android:paddingRight="17dp"
         >
 
-    <TextView android:id="@+id/type"
+    <EditText android:id="@+id/accountName"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:layout_marginTop="20dp"
-              android:text="account type"/>
-
-    <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Enter credentials"
-            />
-
-    <EditText android:id="@+id/userName"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:layout_marginTop="10dp"
-              android:hint="Username"
-              android:text="udinic.testingppp@gmail.com"
+              android:hint="Email address"
               android:inputType="textEmailAddress"
               android:padding="10dp"
             />
 
-    <EditText android:id="@+id/userPass"
+    <EditText android:id="@+id/accountPassword"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:layout_marginTop="10dp"
               android:inputType="textPassword"
-              android:text="qwerty"
               android:hint="Password"
               android:padding="10dp"
             />
@@ -45,6 +31,13 @@
               android:layout_height="wrap_content"
               android:layout_marginTop="10dp"
               android:text="connect"
+              android:padding="10dp"/>
+
+    <TextView android:id="@+id/signUp"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:gravity="center"
+              android:text="New user?"
               android:padding="10dp"/>
 
 </LinearLayout>

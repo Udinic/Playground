@@ -2,9 +2,12 @@ package com.udinic.accounts_auth_example;
 
 import android.accounts.*;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import java.io.IOException;
@@ -19,42 +22,85 @@ public class Main extends Activity {
 
     private String TAG = this.getClass().getSimpleName();
     private android.os.Handler mHandler = new android.os.Handler();
+    private AccountManager mAccountManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.main);
-        findViewById(R.id.request1).setOnClickListener(new View.OnClickListener() {
+        mAccountManager = AccountManager.get(this);
+        findViewById(R.id.btnAddAccount).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                request(Consts.AUTHTOKEN_TYPE_FULL_ACCESS);
+                addNewAccount(Consts.ACCOUNT_TYPE, Consts.AUTHTOKEN_TYPE_FULL_ACCESS);
             }
         });
-        findViewById(R.id.request2).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btnGetAuthToken).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                request(Consts.AUTHTOKEN_TYPE_READ_ONLY);
+                showAccountPicker(Consts.AUTHTOKEN_TYPE_FULL_ACCESS);
+            }
+        });
+        findViewById(R.id.btnGetAuthTokenConvenient).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getTokenForAccountCreateIfNeeded(Consts.ACCOUNT_TYPE, Consts.AUTHTOKEN_TYPE_FULL_ACCESS);
             }
         });
     }
 
-    private void request(String authTokenType) {
+    private void addNewAccount(String accountType, String authTokenType) {
+        final AccountManagerFuture<Bundle> future = mAccountManager.addAccount(accountType, authTokenType, null, null, this, new AccountManagerCallback<Bundle>() {
+            @Override
+            public void run(AccountManagerFuture<Bundle> future) {
+                try {
+                    Bundle bnd = future.getResult();
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            //To change body of implemented methods use File | Settings | File Templates.
+                            Toast.makeText(getBaseContext(), "Account was created", Toast.LENGTH_SHORT).show();
+                        }
+                    });
 
-        AccountManager am = AccountManager.get(this);
-        Account account = new Account("udinic.testingppp@gmail.com", Consts.ACCOUNT_TYPE);
+                    Log.d("udini", "AddNewAccount Bundle is " + bnd);
 
-//        try {
-//            String auth = am.blockingGetAuthToken(account, Consts.AUTHTOKEN_TYPE, true);
-//            Log.d("udini", TAG + "> " + auth);
-//        } catch (OperationCanceledException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        } catch (AuthenticatorException e) {
-//            e.printStackTrace();
-//        }
-        final AccountManagerFuture<Bundle> future = am.getAuthToken(account, authTokenType, null, this, null,null);
+                } catch (OperationCanceledException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (AuthenticatorException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, null);
+    }
+
+    private void showAccountPicker(final String authTokenType) {
+
+        final Account availableAccounts[] = mAccountManager.getAccountsByType(Consts.ACCOUNT_TYPE);
+
+        if (availableAccounts.length == 0) {
+            Toast.makeText(this, "No accounts", Toast.LENGTH_SHORT).show();
+        } else {
+            String name[] = new String[availableAccounts.length];
+            for (int i = 0; i < availableAccounts.length; i++) {
+                name[i] = availableAccounts[i].name;
+            }
+
+            // Account picker
+            new AlertDialog.Builder(this).setTitle("Pick Account").setAdapter(new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_list_item_1, name), new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    getExistingAccountAuthToken(availableAccounts[which], authTokenType);
+                }
+            }).show();
+        }
+    }
+
+    private void getExistingAccountAuthToken(Account account, String authTokenType) {
+        final AccountManagerFuture<Bundle> future = mAccountManager.getAuthToken(account, authTokenType, null, this, null,null);
 
         new Thread(new Runnable() {
             @Override
@@ -70,7 +116,7 @@ public class Main extends Activity {
                             Toast.makeText(getBaseContext(), ((authtoken != null) ? "SUCCESS!" : "FAIL"), Toast.LENGTH_SHORT).show();
                         }
                     });
-                    Log.d("udini", "Bundle is " + bnd);
+                    Log.d("udini", "GetToken Bundle is " + bnd);
                 } catch (OperationCanceledException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
@@ -81,5 +127,43 @@ public class Main extends Activity {
 
             }
         }).start();
+
+    }
+
+    /**
+     * Get the auth token for the account. If not exist - add it and then return its auth token
+     * @param accountType
+     * @param authTokenType
+     */
+    private void getTokenForAccountCreateIfNeeded(String accountType, String authTokenType) {
+        final AccountManagerFuture<Bundle> future = mAccountManager.getAuthTokenByFeatures(accountType, authTokenType, null, this, null, null,
+                new AccountManagerCallback<Bundle>() {
+                    @Override
+                    public void run(AccountManagerFuture<Bundle> future) {
+                        Bundle bnd = null;
+                        try {
+                            bnd = future.getResult();
+                            final String authtoken = bnd.getString(AccountManager.KEY_AUTHTOKEN);
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    //To change body of implemented methods use File | Settings | File Templates.
+                                    Toast.makeText(getBaseContext(), ((authtoken != null) ? "SUCCESS!" : "FAIL"), Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                            Log.d("udini", "GetTokenForAccount Bundle is " + bnd);
+
+                        } catch (OperationCanceledException e) {
+                            e.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        } catch (AuthenticatorException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }
+        , null);
+
     }
 }

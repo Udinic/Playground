@@ -34,8 +34,9 @@ public class UdinicAuthenticator extends AbstractAccountAuthenticator {
         Log.d(TAG, "addAccount");
 
         final Intent intent = new Intent(mContext, AuthenticatorActivity.class);
-        intent.putExtra(AuthenticatorActivity.PARAM_ACCOUNT_TYPE, accountType);
-        intent.putExtra(AuthenticatorActivity.PARAM_AUTH_TYPE, authTokenType);
+        intent.putExtra(AuthenticatorActivity.ARG_ACCOUNT_TYPE, accountType);
+        intent.putExtra(AuthenticatorActivity.ARG_AUTH_TYPE, authTokenType);
+        intent.putExtra(AuthenticatorActivity.ARG_IS_ADDING_NEW_ACCOUNT, true);
         intent.putExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response);
 
         final Bundle bundle = new Bundle();
@@ -81,11 +82,11 @@ public class UdinicAuthenticator extends AbstractAccountAuthenticator {
 
         // If we get here, then we couldn't access the user's password - so we
         // need to re-prompt them for their credentials. We do that by creating
-        // an intent to display our AuthenticatorActivity panel.
+        // an intent to display our AuthenticatorActivity.
         final Intent intent = new Intent(mContext, AuthenticatorActivity.class);
         intent.putExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response);
-        intent.putExtra(AuthenticatorActivity.PARAM_ACCOUNT_TYPE, account.type);
-        intent.putExtra(AuthenticatorActivity.PARAM_AUTH_TYPE, authTokenType);
+        intent.putExtra(AuthenticatorActivity.ARG_ACCOUNT_TYPE, account.type);
+        intent.putExtra(AuthenticatorActivity.ARG_AUTH_TYPE, authTokenType);
         final Bundle bundle = new Bundle();
         bundle.putParcelable(AccountManager.KEY_INTENT, intent);
         return bundle;

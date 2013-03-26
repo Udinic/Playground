@@ -2,11 +2,15 @@ package com.udinic.accounts_auth_example.authentication;
 
 import android.util.Log;
 import com.udinic.accounts_auth_example.Consts;
+import com.udinic.accounts_auth_example.dto.InstallationDetailsDto;
+import com.udinic.accounts_auth_example.dto.UserDto;
+import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.cookie.Cookie;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.BasicCookieStore;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
@@ -14,6 +18,7 @@ import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +29,44 @@ import java.util.List;
  * Time: 15:10
  */
 public class ServerUtils {
+
+    private final static String BASE_URL = "http://sm-dev.any.do";
+    private final static String TAG = ServerUtils.class.getSimpleName();
+
+    public static String createAccount(final String name, final String email, final String pass, String authType) throws UnsupportedEncodingException {
+
+//        UserDto user = new UserDto(email, pass);
+//        user.setName(name);
+//        user.setInstDetails(InstallationDetailsDto.random());
+
+        Log.d("udini", TAG + " > createAccount");
+
+        String user = "{\"phoneNumbers\":[],\"email\":\"" + email + "\",\"password\":\"" + pass + "\",\"name\":\"" + name + "\",\"fake\":false,\"anonymous\":false}";
+
+        DefaultHttpClient httpClient = new DefaultHttpClient();
+        String authtoken = null;
+
+        String url = BASE_URL + "/user";
+
+        HttpPost httpPost = new HttpPost(url);
+
+        HttpEntity entity = new StringEntity(user);
+        httpPost.setEntity(entity);
+        httpPost.addHeader("Content-Type", "application/json");
+
+        try {
+            HttpResponse response = httpClient.execute(httpPost);
+            String responseString = EntityUtils.toString(response.getEntity());
+
+            if (response.getStatusLine().getStatusCode() == HttpURLConnection.HTTP_CREATED)
+                return connect(email, pass, authType);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
 
     /**
      * Connect to the server with the provided credentials and return the auth token
@@ -42,7 +85,7 @@ public class ServerUtils {
         BasicCookieStore cm = new BasicCookieStore();
         httpClient.setCookieStore(cm);
 
-        String url = "http://sm-dev.any.do/j_spring_security_check";
+        String url = BASE_URL + "/j_spring_security_check";
 
         HttpPost httpPost = new HttpPost(url);
 

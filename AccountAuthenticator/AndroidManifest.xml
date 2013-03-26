@@ -16,7 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".authentication.AuthenticatorActivity"/>
+        <activity android:name=".authentication.AuthenticatorActivity" android:label="@string/login_label"/>
+        <activity android:name=".authentication.SignUpActivity" android:label="@string/signup_title"/>
 
         <service android:name=".authentication.UdinicAuthenticatorService">
             <intent-filter>
@@ -35,4 +36,6 @@
 
     <!-- client -->
     <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
 </manifest>

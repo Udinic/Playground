@@ -8,26 +8,18 @@
               android:paddingRight="17dp"
         >
 
-    <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:padding="10dp"
-            android:text="Enter your details"
-            />
-
     <EditText
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:hint="Name"
             android:inputType="text"
             android:padding="10dp"
             />
 
     <EditText
-            android:id="@+id/userName"
+            android:id="@+id/accountName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -37,7 +29,7 @@
             />
 
     <EditText
-            android:id="@+id/userPass"
+            android:id="@+id/accountPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"

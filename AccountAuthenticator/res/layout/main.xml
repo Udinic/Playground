@@ -6,16 +6,22 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <Button android:id="@+id/request1"
+    <Button android:id="@+id/btnAddAccount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="Request Account 1"/>
+            android:text="Add Account"/>
 
-    <Button android:id="@+id/request2"
+    <Button android:id="@+id/btnGetAuthToken"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="Request Account 2"/>
+            android:text="Get Auth token"/>
+
+    <Button android:id="@+id/btnGetAuthTokenConvenient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Get Auth Token convenient"/>
 
 </LinearLayout>
