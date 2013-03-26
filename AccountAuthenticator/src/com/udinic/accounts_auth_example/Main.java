@@ -30,18 +30,21 @@ public class Main extends Activity {
 
         setContentView(R.layout.main);
         mAccountManager = AccountManager.get(this);
+
         findViewById(R.id.btnAddAccount).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 addNewAccount(Consts.ACCOUNT_TYPE, Consts.AUTHTOKEN_TYPE_FULL_ACCESS);
             }
         });
+
         findViewById(R.id.btnGetAuthToken).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showAccountPicker(Consts.AUTHTOKEN_TYPE_FULL_ACCESS);
             }
         });
+
         findViewById(R.id.btnGetAuthTokenConvenient).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,6 +53,11 @@ public class Main extends Activity {
         });
     }
 
+    /**
+     * Add new account to the account manager
+     * @param accountType
+     * @param authTokenType
+     */
     private void addNewAccount(String accountType, String authTokenType) {
         final AccountManagerFuture<Bundle> future = mAccountManager.addAccount(accountType, authTokenType, null, null, this, new AccountManagerCallback<Bundle>() {
             @Override
@@ -77,6 +85,10 @@ public class Main extends Activity {
         }, null);
     }
 
+    /**
+     * Show all the accounts registered on the account manager. Request an auth token upon user select.
+     * @param authTokenType
+     */
     private void showAccountPicker(final String authTokenType) {
 
         final Account availableAccounts[] = mAccountManager.getAccountsByType(Consts.ACCOUNT_TYPE);
@@ -99,6 +111,11 @@ public class Main extends Activity {
         }
     }
 
+    /**
+     * Get the auth token for an existing account on the AccountManager
+     * @param account
+     * @param authTokenType
+     */
     private void getExistingAccountAuthToken(Account account, String authTokenType) {
         final AccountManagerFuture<Bundle> future = mAccountManager.getAuthToken(account, authTokenType, null, this, null,null);
 
@@ -127,11 +144,13 @@ public class Main extends Activity {
 
             }
         }).start();
-
     }
 
     /**
-     * Get the auth token for the account. If not exist - add it and then return its auth token
+     * Get an auth token for the account.
+     * If not exist - add it and then return its auth token.
+     * If one exist - return its auth token.
+     * If more than one exists - show a picker and return the select account's auth token.
      * @param accountType
      * @param authTokenType
      */
@@ -160,10 +179,8 @@ public class Main extends Activity {
                         } catch (AuthenticatorException e) {
                             e.printStackTrace();
                         }
-
                     }
                 }
         , null);
-
     }
 }

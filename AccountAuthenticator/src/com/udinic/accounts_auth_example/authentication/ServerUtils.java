@@ -1,9 +1,6 @@
 package com.udinic.accounts_auth_example.authentication;
 
 import android.util.Log;
-import com.udinic.accounts_auth_example.Consts;
-import com.udinic.accounts_auth_example.dto.InstallationDetailsDto;
-import com.udinic.accounts_auth_example.dto.UserDto;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;

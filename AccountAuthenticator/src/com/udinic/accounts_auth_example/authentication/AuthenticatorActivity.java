@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import com.udinic.accounts_auth_example.Consts;
 import com.udinic.accounts_auth_example.R;
 
 import java.util.Set;
@@ -111,7 +112,13 @@ public class AuthenticatorActivity extends AccountAuthenticatorActivity {
 
         if (getIntent().getBooleanExtra(ARG_IS_ADDING_NEW_ACCOUNT, false)) {
             Log.d("udini", TAG + "> finishLogin > addAccountExplicitly");
+            String authtoken = intent.getStringExtra(AccountManager.KEY_AUTHTOKEN);
+            String authtokenType = getIntent().getStringExtra(ARG_AUTH_TYPE);
+
+            // Creating the account on the device and setting the auth token we got
+            // (Not setting the auth token will cause another call to the server to authenticate the user)
             mAccountManager.addAccountExplicitly(account, accountPassword, null);
+            mAccountManager.setAuthToken(account, authtokenType, authtoken);
         } else {
             Log.d("udini", TAG + "> finishLogin > setPassword");
             mAccountManager.setPassword(account, accountPassword);
