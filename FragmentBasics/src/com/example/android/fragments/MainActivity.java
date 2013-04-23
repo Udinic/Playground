@@ -47,8 +47,10 @@ public class MainActivity extends FragmentActivity
             firstFragment.setArguments(getIntent().getExtras());
 
             // Add the fragment to the 'fragment_container' FrameLayout
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.fragment_container, firstFragment).commit();
+            FragmentTransaction fragmentTransaction =  getSupportFragmentManager().beginTransaction();
+
+            fragmentTransaction.setCustomAnimations(R.anim.slide_from_right, R.anim.slide_to_left);
+            fragmentTransaction.add(R.id.fragment_container, firstFragment).commit();
         }
     }
 
@@ -74,6 +76,8 @@ public class MainActivity extends FragmentActivity
             args.putInt(ArticleFragment.ARG_POSITION, position);
             newFragment.setArguments(args);
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+            transaction.setCustomAnimations(R.anim.slide_from_right, R.anim.slide_to_left);
 
             // Replace whatever is in the fragment_container view with this fragment,
             // and add the transaction to the back stack so the user can navigate back

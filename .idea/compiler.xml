@@ -10,6 +10,7 @@
       <directory url="file://$PROJECT_DIR$/FragmentBasics/gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/ActivitySplitAnimation/gen" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/AccountAuthenticator/gen" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/ParallexScroll/gen" includeSubdirectories="true" />
     </excludeFromCompile>
     <resourceExtensions />
     <wildcardResourcePatterns>

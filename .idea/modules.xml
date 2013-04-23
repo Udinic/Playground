@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/FragmentBasics/FragmentBasics.iml" filepath="$PROJECT_DIR$/FragmentBasics/FragmentBasics.iml" />
       <module fileurl="file://$PROJECT_DIR$/GeneralTestings/GeneralTestings.iml" filepath="$PROJECT_DIR$/GeneralTestings/GeneralTestings.iml" />
       <module fileurl="file://$PROJECT_DIR$/ICS-Testing/ICS-Testing.iml" filepath="$PROJECT_DIR$/ICS-Testing/ICS-Testing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ParallexScroll/ParallexScroll.iml" filepath="$PROJECT_DIR$/ParallexScroll/ParallexScroll.iml" />
       <module fileurl="file://$PROJECT_DIR$/SplashScreen/SplashScreen.iml" filepath="$PROJECT_DIR$/SplashScreen/SplashScreen.iml" />
     </modules>
   </component>

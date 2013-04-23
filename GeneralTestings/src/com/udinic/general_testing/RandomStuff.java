@@ -5,12 +5,14 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.text.Layout;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.format.Time;
@@ -24,21 +26,16 @@ import android.view.ViewGroup;
 import android.widget.*;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
-import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.cookie.Cookie;
 import org.apache.http.impl.client.BasicCookieStore;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.params.BasicHttpParams;
-import org.apache.http.params.HttpParams;
 import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.net.CookieManager;
-import java.net.CookieStore;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -62,10 +59,57 @@ public class RandomStuff extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.act_login);
-
-        HttpResponse res = connect("udinic.testingppp@gmail.com", "qwerty");
+        setContentView(textViewShit());
     }
+
+    private View textViewShit() {
+        FrameLayout layout = new FrameLayout(this);
+        layout.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+
+        TextView tv = new CheckedTextView(this);
+        tv.setText("udini");
+        tv.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        tv.setGravity(Gravity.CENTER);
+        tv.setBackgroundColor(Color.GREEN);
+        tv.setTextColor(Color.BLACK);
+        layout.addView(tv);
+
+//        layout.addView(createTextView(Gravity.LEFT));
+//        layout.addView(createTextView(Gravity.RIGHT));
+//        layout.addView(createTextView(Gravity.CENTER));
+//        layout.addView(createTextView(Gravity.CENTER_HORIZONTAL));
+//        layout.addView(createTextView(Gravity.START));
+//        layout.addView(createTextView(Gravity.END));
+
+        return layout;
+    }
+
+    private View createTextView(int gravity) {
+
+        final UnderlineCheckableTextView tv = new UnderlineCheckableTextView(this);
+        tv.setLayoutParams(new LinearLayout.LayoutParams(500, ViewGroup.LayoutParams.WRAP_CONTENT));
+
+        int padding = 10;
+        tv.setPadding(padding, padding, padding, padding);
+        tv.setBackgroundColor(Color.WHITE);
+        tv.setTextColor(Color.CYAN);
+        tv.setChecked(true);
+        tv.setText("אודיני");
+        tv.setGravity(gravity);
+
+        tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tv.toggle();
+                tv.invalidate();
+            }
+        });
+
+        tv.setTextSize(35);
+
+        return tv;
+    }
+
 
     private HttpResponse connect(final String user, final String pass) {
 
@@ -111,9 +155,9 @@ public class RandomStuff extends Activity {
     }
 
 
-    public static Bitmap drawableToBitmap (Drawable drawable) {
+    public static Bitmap drawableToBitmap(Drawable drawable) {
         if (drawable instanceof BitmapDrawable) {
-            return ((BitmapDrawable)drawable).getBitmap();
+            return ((BitmapDrawable) drawable).getBitmap();
         }
 
         Bitmap bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
@@ -127,7 +171,7 @@ public class RandomStuff extends Activity {
 
     private View layerDrawable() {
 
-        LayerDrawable udini2 = ((LayerDrawable)getResources().getDrawable(R.drawable.layer));
+        LayerDrawable udini2 = ((LayerDrawable) getResources().getDrawable(R.drawable.layer));
 
 //        Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.exec_mail_big);
 
@@ -142,7 +186,6 @@ public class RandomStuff extends Activity {
         LayerDrawable udini = new LayerDrawable(new Drawable[]{getResources().getDrawable(R.drawable.exec_empty), bmd});
 
 //        udini2.setDrawableByLayerId(R.id.udini, getResources().getDrawable(R.drawable.exec_call_big));
-
 
 
         Button ib = new Button(this);
