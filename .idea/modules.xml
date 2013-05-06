@@ -3,8 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AccountAuthenticator/AccountAuthenticator.iml" filepath="$PROJECT_DIR$/AccountAuthenticator/AccountAuthenticator.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ActivitySplitAnimation/ActivitySplitAnimation.iml" filepath="$PROJECT_DIR$/ActivitySplitAnimation/ActivitySplitAnimation.iml" />
       <module fileurl="file://$PROJECT_DIR$/BetterCompoundDrawable/BetterCompoundDrawable.iml" filepath="$PROJECT_DIR$/BetterCompoundDrawable/BetterCompoundDrawable.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ChatHeadsExample/ChatHeadsExample.iml" filepath="$PROJECT_DIR$/ChatHeadsExample/ChatHeadsExample.iml" />
       <module fileurl="file://$PROJECT_DIR$/FragmentBasics/FragmentBasics.iml" filepath="$PROJECT_DIR$/FragmentBasics/FragmentBasics.iml" />
       <module fileurl="file://$PROJECT_DIR$/GeneralTestings/GeneralTestings.iml" filepath="$PROJECT_DIR$/GeneralTestings/GeneralTestings.iml" />
       <module fileurl="file://$PROJECT_DIR$/ICS-Testing/ICS-Testing.iml" filepath="$PROJECT_DIR$/ICS-Testing/ICS-Testing.iml" />
