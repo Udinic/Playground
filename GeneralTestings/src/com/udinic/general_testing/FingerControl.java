@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -30,19 +31,27 @@ public class FingerControl extends Activity implements View.OnTouchListener {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        _root = new FrameLayout(this);
-        _root.setLayoutParams(new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        _root = new RelativeLayout(this);
+        _root.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
 
         setContentView(_root);
 
 
         mLayout = new FrameLayout(this);
-        mLayout.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 102));
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 102);
+        params.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+        mLayout.setLayoutParams(params);
         mLayout.setBackgroundColor(Color.GREEN);
-
         mLayout.setOnTouchListener(this);
-
+        mLayout.setId(43);
         _root.addView(mLayout);
+
+        Button btn = new Button(this);
+        RelativeLayout.LayoutParams params2 = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        params2.addRule(RelativeLayout.BELOW, mLayout.getId());
+        btn.setLayoutParams(params2);
+        _root.addView(btn);
+
 
 //        _view = new TextView(this);
 //        _view.setText("udini is the man");
