@@ -25,8 +25,8 @@ public class TasksContract {
         public static final String ID = "_id";
         public static final String NAME = "name";
         public static final String IS_DEFAULT = "is_default";
-
     }
+
     public static final class TasksColumns{
         public static final String ID = "_id";
         public static final String TITLE = "title";
@@ -49,7 +49,8 @@ public class TasksContract {
     }
 
     // Any.do MIME types
-    public static final String URI_TYPE_TASK_ITEM = "vnd.android.cursor.item/vnd.anydo.task";
-    public static final String URI_TYPE_TASKS_DIR = "vnd.android.cursor.dir/vnd.anydo.task";
-    public static final String URI_TYPE_NOTES_DIR = "vnd.android.cursor.dir/vnd.anydo.note";
+    public static final String URI_TYPE_TASK_ITEM       = "vnd.android.cursor.item/vnd.anydo.task";
+    public static final String URI_TYPE_FOLDERS_ITEM    = "vnd.android.cursor.dir/vnd.anydo.folder";
+    public static final String URI_TYPE_TASKS_DIR       = "vnd.android.cursor.dir/vnd.anydo.task";
+    public static final String URI_TYPE_NOTES_DIR       = "vnd.android.cursor.dir/vnd.anydo.note";
 }
