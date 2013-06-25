@@ -12,6 +12,8 @@ public class TasksContract {
     public static final Uri FOLDERS_URI = Uri.parse("content://com.anydo.provider/folders");
 
     public static final String PERMISSION_READ = "com.anydo.provider.permission.READ_ANYDO_TASKS";
+
+    // Broadcast intent that is sent when the task list has been refreshed
     public static final String INTENT_ACTION_TASKS_REFREHSED = "com.anydo.intent.INTENT_ACTION_TASKS_REFRESHED";
 
     // Task/Note Status
