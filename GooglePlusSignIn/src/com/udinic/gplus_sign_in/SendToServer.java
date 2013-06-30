@@ -25,6 +25,11 @@ public class SendToServer extends Activity implements View.OnClickListener {
     private static final int REQUEST_ACCOUNT_PICKER = 10;
     String accountName = "udinic.2testing@gmail.com";
 
+    // Docs:
+    // http://android-developers.blogspot.co.il/2012/09/google-play-services-and-oauth-identity.html
+    // http://stackoverflow.com/questions/12689858/newly-released-authentication-with-google-play-services-problems-with-getting
+    // http://android-developers.blogspot.co.il/2013/01/verifying-back-end-calls-from-android.html
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
