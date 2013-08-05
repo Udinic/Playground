@@ -4,6 +4,8 @@ import android.app.ListFragment;
 import android.app.LoaderManager;
 import android.content.*;
 import android.database.Cursor;
+import android.database.CursorWrapper;
+import android.database.DatabaseUtils;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.CalendarContract;
@@ -13,10 +15,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.CursorAdapter;
-import android.widget.SimpleCursorAdapter;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.*;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -42,7 +41,6 @@ public class CalendarInstancesFragment extends ListFragment implements LoaderMan
 
         adapter = new InstanceAdapter(getActivity(), R.layout.list_item_instance, null, from, to, CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
         setListAdapter(adapter);
-
         setHasOptionsMenu(true);
     }
 
@@ -93,6 +91,7 @@ public class CalendarInstancesFragment extends ListFragment implements LoaderMan
                 ContentUris.appendId(uriBuilder, endDay);
 
                 String[] projection = new String[] {
+                        CalendarContract.Instances.EVENT_ID,
                         CalendarContract.Instances._ID,
                         CalendarContract.Instances.TITLE,
                         CalendarContract.Instances.DTSTART,
@@ -124,11 +123,33 @@ public class CalendarInstancesFragment extends ListFragment implements LoaderMan
         }
 
         @Override
-        public void bindView(View view, Context context, Cursor cursor) {
+        public void bindView(View view, Context context, final Cursor cursor) {
             super.bindView(view, context, cursor);
 
             long time = cursor.getLong(cursor.getColumnIndex(CalendarContract.Instances.BEGIN));
             ((TextView)view.findViewById(R.id.date)).setText(new Date(time).toLocaleString());
+
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.d("Udini", "Before: " + DatabaseUtils.dumpCurrentRowToString(cursor));
+
+                    String title = cursor.getString(cursor.getColumnIndex(CalendarContract.Instances.TITLE));
+                    ContentValues values = new ContentValues();
+                    values.put(CalendarContract.Instances.TITLE, title + 1);
+                    // These 2 lines allowing the stock calendar app to show a link to our app inside the event's info
+                    // Our "edit event" activity needs to handle the action as described:
+                    // http://developer.android.com/reference/android/provider/CalendarContract.html#ACTION_HANDLE_CUSTOM_EVENT
+                    values.put(CalendarContract.Events.CUSTOM_APP_PACKAGE, getActivity().getPackageName());
+                    values.put(CalendarContract.Events.CUSTOM_APP_URI, Uri.decode("udini://udini")); // Not sure how to work with it
+
+                    getActivity().getContentResolver().update(CalendarContract.Events.CONTENT_URI, values,
+                            CalendarContract.Events._ID + "=?",
+                            new String[]{String.valueOf(cursor.getInt(cursor.getColumnIndex(CalendarContract.Instances.EVENT_ID)))});
+
+                    Log.d("Udini", "After: " + DatabaseUtils.dumpCurrentRowToString(cursor));
+                }
+            });
         }
     }
 
