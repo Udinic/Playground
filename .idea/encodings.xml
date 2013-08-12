@@ -1,26 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
-    <file url="file://$PROJECT_DIR$/AccountAuthenticator" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/GeneralTestings/res/drawable-xhdpi/exec_call_big.png" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/GeneralTestings/res/drawable-xhdpi/exec_empty.png" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/GeneralTestings/res/drawable-xhdpi/exec_mail_big.png" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/GeneralTestings/res/drawable/bg.xml" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/GeneralTestings/res/drawable/dialog_rounded_bg_wh.xml" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/GeneralTestings/res/drawable/selector_item_bg_wh.xml" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/GeneralTestings/res/drawable/shape_selector_item_highlight_wh.xml" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/GeneralTestings/res/drawable/shape_selector_item_hoover_wh.xml" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/GeneralTestings/res/drawable/shape_selector_item_longclick_wh.xml" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/GeneralTestings/res/drawable/shape_selector_item_normal.xml" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/GeneralTestings/res/drawable/shape_trans_selector_item_highlight_wh.xml" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/GeneralTestings/res/drawable/whats_new_button.xml" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/GeneralTestings/res/layout/dlg_yes_no.xml" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/GeneralTestings/res/values/colors-white.xml" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/GeneralTestings/src/com/udinic/general_testing/contact_accessor/ContactAccessor.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/GeneralTestings/src/com/udinic/general_testing/contact_accessor/ContactData.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/SplashScreen/res/drawable-xhdpi/icon.png" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/SplashScreen/res/drawable/splash_bg.xml" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/SplashScreen/res/layout/splash2.xml" charset="UTF-8" />
-  </component>
+  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false" />
 </project>
 

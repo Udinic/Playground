@@ -5,6 +5,7 @@
 
 *.iws
 *.iml
+/**/*.iml
 *.ipr
 *.class
 *.pyc
