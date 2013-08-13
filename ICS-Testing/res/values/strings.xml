@@ -7,4 +7,5 @@
     <string name="menu_rsvp_coming">coming</string>
     <string name="menu_rsvp_maybe">maybe</string>
     <string name="menu_rsvp_not_coming">not coming</string>
+    <string name="edit_event">edit_event</string>
 </resources>

@@ -23,7 +23,12 @@ import java.io.IOException;
 public class SendToServer extends Activity implements View.OnClickListener {
     private static final int REQUEST_AUTHORIZATION = 20;
     private static final int REQUEST_ACCOUNT_PICKER = 10;
-    String accountName = "udinic.2testing@gmail.com";
+    // Account name
+    String accountName = "udinic.testing@gmail.com";
+
+
+    // DISCLAIMER: NEED TO SIGN THE APK WITH THE APPROPRIATE KEY
+
 
     // Docs:
     // http://android-developers.blogspot.co.il/2012/09/google-play-services-and-oauth-identity.html
@@ -58,7 +63,6 @@ public class SendToServer extends Activity implements View.OnClickListener {
             @Override
             public void run() {
 //                String serverClientIdUdi = "526672862249-k7qjcg4n88d59h2r5kdiklucs4oakcko.apps.googleusercontent.com";
-
                 String serverClientIdAnydo = "543675644531-2teck7757en2bfn1dpaqs31931cb0ukd.apps.googleusercontent.com";
                 String scopes = "https://www.googleapis.com/auth/plus.login";
                 //                String scopes = "https://www.googleapis.com/auth/userinfo.email";
