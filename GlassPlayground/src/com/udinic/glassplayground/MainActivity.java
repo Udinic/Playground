@@ -159,8 +159,6 @@ public class MainActivity extends Activity {
                     JSONObject notification = new JSONObject();
                     notification.put("level", "DEFAULT"); // Play a chime
 
-                    String id = "59a55579-5fda-450e-a1a2-8d35c5a4df9d";
-
                     JSONObject menuItem1 = new JSONObject();
 //                    menuItem1.put("id", id);
                     menuItem1.put("action", "SHARE");
