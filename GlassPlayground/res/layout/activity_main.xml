@@ -49,6 +49,12 @@
                 android:src="@drawable/ic_btn_send"/>
         </LinearLayout>
 
+        <Button android:id="@+id/contact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Create contact"/>
+
     </LinearLayout>
 
     <View

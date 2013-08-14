@@ -50,9 +50,19 @@ public class MirrorApiClient {
 
     public void createTimelineItem(String token, JSONObject json,
             final Callback callback) {
+        createItem("timeline", token, json, callback);
+    }
+
+    public void createContactItem(String token, JSONObject json,
+            final Callback callback) {
+        createItem("contacts", token, json, callback);
+    }
+
+    public void createItem(String type, String token, JSONObject json,
+            final Callback callback) {
         try {
             final HttpPost request = new HttpPost();
-            request.setURI(new URI(BASE_URL + "timeline"));
+            request.setURI(new URI(BASE_URL + type));
             request.addHeader("Content-Type", "application/json");
             request.addHeader("Authorization", String.format("Bearer %s", token));
             request.setEntity(new StringEntity(json.toString()));

@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
@@ -62,6 +63,8 @@ public class MainActivity extends Activity {
         // Define our layout
         setContentView(R.layout.activity_main);
 
+        mAuthToken = PreferenceManager.getDefaultSharedPreferences(this).getString("auth", null);
+
         // Get our views
         mStartAuthButton = (Button) findViewById(R.id.oauth_button);
         mExpireTokenButton = (Button) findViewById(R.id.oauth_expire_button);
@@ -105,6 +108,12 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View view) {
                 createNewTimelineItem();
+            }
+        });
+        findViewById(R.id.contact).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                createUdiniContact();
             }
         });
     }
@@ -151,6 +160,62 @@ public class MainActivity extends Activity {
         }
     }
 
+    private JSONObject createJson(String name, String value) throws JSONException {
+        JSONObject kind = new JSONObject();
+        kind.put(name, value);
+        return kind;
+    }
+
+    private void createUdiniContact() {
+        try {
+            JSONObject json = new JSONObject();
+            json.put("kind", "mirror#contact");
+            json.put("id", "5456");
+            json.put("displayName", "Any.do");
+            json.put("speakableName", "Any do");
+
+            JSONObject acceptCommand1 = createJson("type", "TAKE_A_NOTE");
+            JSONArray acceptCommands = new JSONArray();
+            acceptCommands.put(acceptCommand1);
+            json.put("acceptCommands", acceptCommands);
+
+            JSONArray imageUrls = new JSONArray();
+            imageUrls.put("http://www.any.do/images/anydo-logo.png");
+            json.put("imageUrls", imageUrls);
+
+            Log.d(TAG, "JSON object:\n"+ json.toString(4));
+
+            MirrorApiClient client = MirrorApiClient.getInstance(this);
+            client.createContactItem(mAuthToken, json, new MirrorApiClient.Callback() {
+                @Override
+                public void onSuccess(HttpResponse response) {
+                    try {
+                        Log.v(TAG, "onSuccess: " + EntityUtils.toString(response.getEntity()));
+                    } catch (IOException e1) {
+                        // Pass
+                    }
+                    Toast.makeText(MainActivity.this, "Created new contact item",
+                            Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onFailure(HttpResponse response, Throwable e) {
+                    try {
+                        Log.v(TAG, "onFailure: " + EntityUtils.toString(response.getEntity()));
+                    } catch (IOException e1) {
+                        // Pass
+                    }
+                    Toast.makeText(MainActivity.this, "Failed to create new contact item",
+                            Toast.LENGTH_SHORT).show();
+                }
+            });
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
+    }
     private void createNewTimelineItem() {
         if (!TextUtils.isEmpty(mAuthToken)) {
             String message = mNewCardEditText.getText().toString();
@@ -160,16 +225,42 @@ public class MainActivity extends Activity {
                     notification.put("level", "DEFAULT"); // Play a chime
 
                     JSONObject menuItem1 = new JSONObject();
-//                    menuItem1.put("id", id);
                     menuItem1.put("action", "SHARE");
-//                    menuItem1.put("action", "DELETE");
+                    JSONObject menuItem2 = new JSONObject();
+                    menuItem2.put("action", "TOGGLE_PINNED");
 
                     JSONArray menuItemsArray = new JSONArray();
                     menuItemsArray.put(menuItem1);
+                    menuItemsArray.put(menuItem2);
 
                     JSONObject json = new JSONObject();
 //                    json.put("id", id);
-                    json.put("text", message);
+//                    json.put("text", message);
+
+                    String html = "<article>\n" +
+                            "\t<figure>\n" +
+                            "\t\t<h3>Any.do Reminder</h3>\n" +
+                            "\t\t<h1>"+message+"</h1>\n" +
+                            "\t\tvia <img src=\"http://www.any.do/images/anydo-logo.png\"/>\n" +
+                            "\t</figure>\n" +
+                            "</article>";
+
+                    String html2 = "<article class=\"photo\">\n" +
+                            "  <img src=\"https://dl.dropboxusercontent.com/u/12494794/anydo.png\" align=\"right\" width=\"90px\" height=\"90px\">\n  " +
+                            "  <img src=\"https://dl.dropboxusercontent.com/u/12494794/bell.gif\" align=\"left\" >\n  " +
+                            "<div class=\"photo-overlay\"></div>\n  " +
+                            "<section>\n    " +
+//                            "<p class=\"text-auto-size\">"+message+"</p>\n  " +
+                            "<p class=\"text-small\">"+"Reminder from Any.do:"+"</p>\n  " +
+                            "<p class=\"text-large\">"+"Pick up the kids after work"+"</p>\n  " +
+                            "</section>\n" +
+                            "</article>\n";
+
+                    json.put("html", html2);
+
+                    json.put("isPinned", true);
+                    json.put("title", "TitleU");
+                    json.put("speakableText", "Udini is the man");
                     json.put("notification", notification);
                     json.put("menuItems", menuItemsArray);
 
@@ -178,12 +269,17 @@ public class MainActivity extends Activity {
                     MirrorApiClient client = MirrorApiClient.getInstance(this);
                     client.createTimelineItem(mAuthToken, json, new MirrorApiClient.Callback() {
                         @Override
-                        public void onSuccess(HttpResponse response) {
-                            try {
-                                Log.v(TAG, "onSuccess: " + EntityUtils.toString(response.getEntity()));
-                            } catch (IOException e1) {
-                                // Pass
-                            }
+                        public void onSuccess(final HttpResponse response) {
+                                new Thread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        try {
+                                            Log.v(TAG, "onSuccess: " + EntityUtils.toString(response.getEntity()));
+                                        } catch (IOException e1) {
+                                            // Pass
+                                        }
+                                    }
+                                }).start();
                             Toast.makeText(MainActivity.this, "Created new timeline item",
                                     Toast.LENGTH_SHORT).show();
                         }
@@ -217,6 +313,7 @@ public class MainActivity extends Activity {
         Log.d(TAG, "onTokenResult: " + token);
         if (!TextUtils.isEmpty(token)) {
             mAuthToken = token;
+            PreferenceManager.getDefaultSharedPreferences(this).edit().putString("auth", mAuthToken).commit();
             mExpireTokenButton.setEnabled(true);
             mStartAuthButton.setEnabled(false);
             Toast.makeText(this, "New token result", Toast.LENGTH_SHORT).show();
