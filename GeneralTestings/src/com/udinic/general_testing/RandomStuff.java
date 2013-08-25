@@ -59,7 +59,23 @@ public class RandomStuff extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(textViewShit());
+        setContentView(customView());
+    }
+
+    private View customView() {
+        LinearLayout ll = new LinearLayout(this);
+        ll.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        ll.setOrientation(LinearLayout.VERTICAL);
+
+        LinearLayout item = new LinearLayout(this);
+        item.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        CalenderTypeIndicator indicator = new CalenderTypeIndicator(this);
+        indicator.setColor(Color.RED);
+        item.addView(indicator, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        ll.addView(item);
+
+
+        return ll;
     }
 
     private View textViewShit() {

@@ -266,7 +266,18 @@ public class MainActivity extends Activity {
                             "  </section>\n" +
                             "</article>";
 
-                    json.put("html", html3);
+                    String html4 = "<article class=\"photo\">\n" +
+                            "  <img src=\"https://s3.amazonaws.com/static.any.do/glass/anydo.png\" style=\"padding-top:10px; padding-right: 20px;\" align=\"right\" width=\"90px\" height=\"90px\">\n" +
+                            "    <img src=\"https://s3.amazonaws.com/static.any.do/glass/bell.gif\" style=\"padding-top:10px; padding-left: 20px;\" align=\"left\" >\n" +
+                            "  <div class=\"photo-overlay\"></div>\n" +
+                            "  <section style=\"position: absolute; bottom: 0px; width: 100%; padding-top:0px; margin-top:0px;\">\n" +
+                            "    <p class=\"text-small\" style=\"padding-top:0px; padding-bottom:15px; margin-top:0px;\" >Reminder from Any.do:</p>\n" +
+                            "  \t<p class=\"text-large\">Pick up the kids after work</p>\n" +
+                            "  </section>\n" +
+                            "</article>";
+
+
+                    json.put("html", html4);
 
                     json.put("isPinned", true);
                     json.put("title", "TitleU");
