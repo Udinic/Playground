@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <com.udinic.general_testing.MyImageView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:src="@drawable/bg_lifestyle_cars_49078414116"
+            android:id="@+id/imageView"/>
+
+    <SeekBar
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:padding="10dp"
+            android:id="@+id/seekBar"
+            android:layout_gravity="center"/>
+</LinearLayout>

@@ -15,7 +15,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".MyActivity2"/>
-        <activity android:name=".FingerControl">
+        <activity android:name=".BitmapStuff">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
